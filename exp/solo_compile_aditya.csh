@@ -33,7 +33,7 @@ source $root/bin/environs.$platform  # environment variables and loadable module
 #NOTE: On some platforms you may need to specify the location for netcdf.h and libnetcdf.a
 #      by modifying the following -I and -L
   if ( $MPI && ! -f $mppnccombine ) then
-    cc -O -o $mppnccombine -I/usr/local/include -L/usr/local/lib  -I/iitm3/erpas-res/rphani/lib/sorc/netcdf-3.6.3/include -L/iitm3/erpas-res/rphani/lib/sorc/netcdf-3.6.3/lib -lnetcdf  $code_dir/postprocessing/mppnccombine/mppnccombine.c
+    cc -O -o $mppnccombine  -I/iitm3/erpas-res/rphani/lib/sorc/netcdf-3.6.3/include -L/iitm3/erpas-res/rphani/lib/sorc/netcdf-3.6.3/lib  $code_dir/postprocessing/mppnccombine/mppnccombine.c  -lnetcdf
   endif
 
 
