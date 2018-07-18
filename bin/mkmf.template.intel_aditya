@@ -1,0 +1,15 @@
+# Template for IBM xlf and xlc compilers
+#typical use with netCDF:
+# mkmf -t template.ibm -c"-Duse_libMPI -Duse_netCDF" path_names /usr/local/include
+FC = mpiifort
+LD = mpiifort
+CC = mpcc
+#FFLAGS = -r8 -i4 -free -xHOST -convert big_endian -traceback -fpconstant -save-temps -align dcommons -fast -assume byterecl $(INCL) -Wp,-P
+#
+FFLAGS = -O3 -r8 -i4 -free -convert big_endian -fp-model precise -fpconstant -save-temps -align dcommons -assume byterecl $(INCL) -Wp,-P
+
+LIBS=-L/iitm3/erpas-res/rphani/lib/sorc/netcdf-3.6.3/lib -lnetcdf
+INCL=-I/iitm3/erpas-res/rphani/lib/sorc/netcdf-3.6.3/include
+
+CFLAGS = -O3 -save-temps $(INCL)
+LDFLAGS =  $(LIBS) -openmp
